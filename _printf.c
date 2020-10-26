@@ -20,13 +20,16 @@ int _printf(const char *format, ...)
 	va_list list;
 
 	va_start(list, format);
-	while (format[i])
+	if (!format)
+	{
+		write(1, (null), 7);
+	}
+	while (format[i] && format)
 	{
 		if (format[i] == '%')
 		{
-			j = 0;
 			i++;
-			while (j < 5)
+			for (j = 0; j < 5, j++)
 			{
 				if (type[j].c[0] == format[i])
 				{
@@ -34,7 +37,6 @@ int _printf(const char *format, ...)
 					type[j].f(list);
 					break;
 				}
-				j++;
 			}
 			i++;
 		}
