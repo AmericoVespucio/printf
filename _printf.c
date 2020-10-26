@@ -1,9 +1,7 @@
 #include "holberton.h"
-#include <stddef.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdarg.h>
-#include <stdio.h>
 /**
  * _printf - print
  * @format: string
@@ -20,11 +18,11 @@ int _printf(const char *format, ...)
 	va_list list;
 
 	va_start(list, format);
-/*	if (format == NULL)
+	if (format == NULL)
 	{
 		return (-1);
 	}
-*/	for (i = 0; format[i] != '\0'; i++)
+	for (i = 0; format[i] != '\0'; i++)
 	{
 		while (format[i] != '%' && format[i] != '\0')
 		{

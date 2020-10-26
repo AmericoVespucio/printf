@@ -47,6 +47,10 @@ int print_string(va_list list)
 	int n;
 
 	tmp = va_arg(list, char *);
+	if (str == NULL)
+		str = "(null)";
+	if (str[0] == '\0')
+		return (0);
 	n = _strlen(tmp);
 	write(1, tmp, n);
 	return (n);
