@@ -5,29 +5,21 @@
 #include <stdarg.h>
 #include <stdio.h>
 /**
- * _printf - print 
+ * _printf - print
  * @format: string
  * Return: Always n.
  */
 int _printf(const char *format, ...)
 {
 	pa type[] = {
-		{"c", print_char},
-		{"s", print_string},
-		{"i", print_int},
-		{"d", print_int},
-		{"%", print_percent},
-		{NULL, NULL}
+		{"c", print_char}, {"s", print_string},
+		{"i", print_int}, {"d", print_int},
+		{"%", print_percent}, {NULL, NULL}
 	};
 	int i = 0, j, c, numchar = 0;
 	va_list list;
-	/*char *s;*/
 
 	va_start(list, format);
-	if (!format)
-	{
-		return (numchar);
-	}
 	while (format[i])
 	{
 		if (format[i] == '%')
@@ -41,7 +33,6 @@ int _printf(const char *format, ...)
 					numchar += type[j].f(list) - 1;
 					type[j].f(list);
 					break;
-                    
 				}
 				j++;
 			}

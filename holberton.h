@@ -1,8 +1,9 @@
-#include <stdarg.h>
 #ifndef HOLBERTON_H
 #define HOLBERTON_H
+#include <stdarg.h>
+
 /**
- * struct tipo - Struct tipo
+ * struct print_arguments - Struct print arguments
  *
  * @c: the character
  * @f: The function associated
