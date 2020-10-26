@@ -23,9 +23,9 @@ int _printf(const char *format, ...)
 	if (format == NULL)
 	{
 		write(1, "(null)", 7);
-		return (-1);
+		return (0);
 	}
-	for(i = 0; format[i] != '\0'; i++)
+	for (i = 0; format[i] != '\0'; i++)
 	{
 		while (format[i] != '%' && format[i] != '\0')
 		{
@@ -35,15 +35,11 @@ int _printf(const char *format, ...)
 			numchar++;
 		}
 		if (format[i] != '\0')
-		{
 			i++;
-		}
 		else
-		{
 			break;
-		}
 		for (j = 0; j < 6; j++)
-		{	
+		{
 			if (type[j].c[0] == format[i])
 			{
 				numchar += type[j].f(list);
