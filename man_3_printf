@@ -1,0 +1,70 @@
+.TH _PRINTF 3
+.SH NAME
+_printf - format and print data, _printf is a recreation of print f
+.SH SYNOPSIS
+\fB#include "holberton.h"\fR
+
+\fBint _printf(const char *\fR\fIformat\fR\fB, ...);\fR
+
+.SH DESCRIPTION
+\fB_printf()\fR writes to the standard output according to a format specifier. The specifiers are listed below.
+
+.RE
+
+.B The Conversion Specifier
+.RS 3
+The following characters are what \fB_printf()\fR is able to convert, along with their matching descriptions.
+
+.B i, d
+.RS 6
+The \fIint\fR argument is converted to signed decimal notation.
+.RE
+
+.B c
+.RS 6
+The \fIint\fR argument is converted to an unsigned char, and the resulting character is written.
+.RE
+
+.B s
+.RS 6
+The \fIconst char *\fR argument is expected to be a pointer to an array of character type (pointer to a string).  Characters from the array are written up to (but not including) a terminating null byte ('\\0').
+.RE
+
+.B %
+.RS 6
+A '%' is written. No argument is converted.  The complete conversion specifications i '%%'.
+.RE
+
+.SH NOTES
+This program does not account for flag characters, field width, precision, or length modifiers.
+
+.SH EXAMPLE
+.RS 3
+Print a sentence using conversion specifiers:
+.RE
+
+.RS 8
+#include "holberton.h"
+.br
+int main (void)
+.br
+{
+.br
+.RS 8
+_printf("Pr%dgram%cing is %s!\\n", 0, 'm', "fun");
+.br
+return (0);
+.RE
+.br
+}
+.RE
+
+.RS 3
+Output : "Pr0gramming is fun!"
+.RE
+
+.SH SEE ALSO
+.B printf(3)
+
+.SH AUTHOR
+Tadeo Grach, Esteban Aguiar 2020
