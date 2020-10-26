@@ -1,84 +1,37 @@
-#include <unistd.h>
-#include <stdarg.h>
 #include "holberton.h"
-
 /**
- * _strlen - Entry point
- * @s: int
- * Return: void (Success)
- */
-int _strlen(char *s)
-{
-	int n, len;
-
-	n = len = 0;
-	while (*(s + n) != '\0')
-	{
-		n++;
-		len++;
-	}
-	return (len);
-}
-
-/**
+ * _printf - It prints with different formats.
+ * @fm: Format to print.
  *
+ * Return: Always returns (0).
  */
-void print_char(va_list list)
+int _printf(format fm, ...)
 {
-	char c;
-
-	c = va_arg(list, int);
-	write (1, &c, 1);
-}
-
-/**
- *
- */
-void print_string(va_list list)
-{
-	char *tmp;
-	int n;
-
-	tmp = va_arg(list, char *);
-	n = _strlen(tmp);
-	write(1, tmp, n);
-}
-
-int _printf(const char *format, ...)
-{
-	pa type[] = {
-		{"c", print_char},
-		{"s", print_string},
-		{NULL, NULL}
+	va_list fmt;
+	int flag, chk;
+	funcs pFmt[] = {
+		{"%c", print_char},
+		{"%s", print_str},
+		{"%%", print_percent},
+		{"%d", print_integer},
+		{"%i", print_integer},
+		{"%b", print_in_bases},
+		{"%o", print_in_bases},
+		{"%u", print_in_bases},
+		{"%x", print_in_bases},
+		{"%X", print_in_bases},
+		{"%r", print_rev},
+		{"%R", rot13}
 	};
-	int i = 0, j, c;
-	va_list list;
 
-	va_start(list, format);
-	while (format && format[i])
-	{
-		if (format[i] == '%')
-		{
-			j = 0;
-			i++;
-			while (j < 2)
-			{
-				if (type[j].c[0] == format[i])
-				{
-					type[j].f(list);
-					break;
-				}
-				j++;
-			}
-			i++;
-		}
-		else
-		{
-			c = format[i];
-			write(1, &c, 1);
-			i++;
-		}
-	}
-	va_end(list);
-	return (0);
+	if (!fm)
+		return (-1);
+
+	flag = 0;
+	va_start(fmt, fm);
+
+	chk = checker(fm, flag, pFmt, fmt);
+
+	va_end(fmt);
+	return (chk);
 }
