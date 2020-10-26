@@ -30,6 +30,8 @@ int print_char(va_list list)
 {
 	char c;
 
+	if (list == 0)
+		list = NULL;
 	c = va_arg(list, int);
 	write(1, &c, 1);
 	return (1);
