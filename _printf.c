@@ -16,37 +16,40 @@ int _printf(const char *format, ...)
 		{"i", print_int}, {"d", print_int},
 		{"%", print_percent}, {NULL, NULL}
 	};
-	int i = 0, j, c, numchar = 0;
+	int i, j, c, numchar = 0;
 	va_list list;
 
 	va_start(list, format);
-	if (!format)
+	if (format == NULL)
 	{
-		write(1, (null), 7);
+		write(1, "(null)", 7);
+		return (-1);
 	}
-	while (format[i] && format)
+	for(i = 0; format[i] != '\0'; i++)
 	{
-		if (format[i] == '%')
-		{
-			i++;
-			for (j = 0; j < 5, j++)
-			{
-				if (type[j].c[0] == format[i])
-				{
-					numchar += type[j].f(list) - 1;
-					type[j].f(list);
-					break;
-				}
-			}
-			i++;
-		}
-		else
+		while (format[i] != '%' && format[i] != '\0')
 		{
 			c = format[i];
 			write(1, &c, 1);
 			i++;
+			numchar++;
 		}
-		numchar++;
+		if (format[i] != '\0')
+		{
+			i++;
+		}
+		else
+		{
+			break;
+		}
+		for (j = 0; j < 6; j++)
+		{	
+			if (type[j].c[0] == format[i])
+			{
+				numchar += type[j].f(list);
+				break;
+			}
+		}
 	}
 	va_end(list);
 	return (numchar);
