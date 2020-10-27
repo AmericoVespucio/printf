@@ -10,40 +10,64 @@
 int _printf(const char *format, ...)
 {
 	pa type[] = {
-		{"c", print_char}, {"s", print_string},
-		{"i", print_int}, {"d", print_int},
-		{"%", print_percent}, {NULL, NULL}
+		{"c", print_char}, 
+		{"s", print_string},
+		{"i", print_int}, 
+		{"d", print_int},
+		{"%", print_percent}, 
+		{NULL, NULL}
 	};
-	int i, j, c, numchar = 0;
+	int count = 0;
 	va_list list;
 
-	va_start(list, format);
-	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+	if (format == NULL)
 	{
 		return (-1);
 	}
-	for (i = 0; format[i] != '\0'; i++)
+	va_start(list, format);
+	count = code_block(format, list, type);
+	va_end(list);
+	return (count);
+}
+
+int code_block(const char *format, va_list list, pa *type)
+{
+	int i = 0, j, c = 0, f, numchar = 0;
+ 
+	while (format[i] != '\0')
 	{
-		while (format[i] != '%' && format[i] != '\0')
+		f = 0;
+		if (format[i] == '%')
+		{
+			if  (format[i + 1] == '\0')
+			{
+				return (-1);  
+			}
+			for (j = 0; type[j].c != NULL; j++)
+			{
+				if (type[j].c[0] == format[i + 1])
+				{
+					numchar += type[j].f(list);
+					f = 1;
+					break;
+				}
+			}
+		}
+		if (f == 1)
+		{
+			if (format[i + 1] == '\0' || format[i + 2] == '\0')
+			{
+				break;
+			}
+			i += 2;
+		}
+		else
 		{
 			c = format[i];
 			write(1, &c, 1);
 			i++;
 			numchar++;
 		}
-		if (format[i] != '\0')
-			i++;
-		else
-			break;
-		for (j = 0; j < 6; j++)
-		{
-			if (type[j].c[0] == format[i])
-			{
-				numchar += type[j].f(list);
-				break;
-			}
-		}
 	}
-	va_end(list);
-	return (numchar);
+	return(numchar);
 }
