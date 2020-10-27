@@ -15,6 +15,7 @@ int _printf(const char *format, ...)
 		{"i", print_int},
 		{"d", print_int},
 		{"%", print_percent},
+		{"u", print_uint},
 		{NULL, NULL}
 	};
 	int count = 0;

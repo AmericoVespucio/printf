@@ -21,4 +21,5 @@ int print_string(va_list list);
 int print_int(va_list list);
 int print_percent(void);
 int code_block(const char *format, va_list list, pa *type);
+int print_uint(va_list list);
 #endif
