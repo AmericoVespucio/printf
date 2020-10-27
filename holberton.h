@@ -8,6 +8,7 @@
  * @c: the character
  * @f: The function associated
  */
+
 typedef struct print_arguments
 {
 	char *c;
