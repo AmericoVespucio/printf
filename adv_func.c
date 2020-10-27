@@ -1,6 +1,22 @@
 #include "holberton.h"
 
 /**
+ *
+ */
+int print_bin(va_list list)
+{
+	unsigned int i, n = va_arg(list, unsigned int);
+
+	for (i = 0; n > 0; i++)
+	{
+		bin = n % 2;
+		_putchar(bin + '0');
+		n = n / 2;
+	}
+	return (i);
+}
+
+/**
  * print_uint - main function
  * @list: The argument pointer.
  *

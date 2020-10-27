@@ -65,40 +65,34 @@ int print_string(va_list list)
  */
 int print_int(va_list list)
 {
-	int n = va_arg(list, int);
-	int num, last = n % 10, digit, exp = 1;
-	int  i = 1;
 
-	n = n / 10;
-	num = n;
+	long int num, div, i = 0;
 
-	if (last < 0)
+	num = va_arg(list, int);
+
+	if (num == 0)
+	{
+		_putchar('0');
+		i = 1;
+	}
+	else if (num < 0)
 	{
 		_putchar('-');
 		num = -num;
-		n = -n;
-		last = -last;
-		i++;
+		i = 1;
 	}
 	if (num > 0)
 	{
-		while (num / 10 != 0)
+		for (div = 1; div <= num; div *= 10)
+			;
+		while (div > 1)
 		{
-			exp = exp * 10;
-			num = num / 10;
-		}
-		num = n;
-		while (exp > 0)
-		{
-			digit = num / exp;
-			_putchar(digit + '0');
-			num = num - (digit * exp);
-			exp = exp / 10;
+			div /= 10;
+			_putchar((num / div) + '0');
+			num %= div;
 			i++;
 		}
 	}
-	_putchar(last + '0');
-
 	return (i);
 }
 
