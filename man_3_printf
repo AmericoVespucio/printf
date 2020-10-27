@@ -11,7 +11,7 @@ _printf - format and print data, _printf is a recreation of print f
 
 .RE
 
-.B The Conversion Specifier
+.B Conversion values
 .RS 3
 The following characters are what \fB_printf()\fR is able to convert, along with their matching descriptions.
 
