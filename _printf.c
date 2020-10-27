@@ -4,7 +4,7 @@
 #include <stdarg.h>
 /**
  * _printf - print formatted function recreation.
- * @format: receiving string
+ * @format: receiving string.
  * Return: count, wich is a counter of all the values of the string.
  */
 int _printf(const char *format, ...)
