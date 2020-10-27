@@ -3,9 +3,9 @@
 #include <stdlib.h>
 #include <stdarg.h>
 /**
- * _printf - print
- * @format: string
- * Return: count.
+ * _printf - print formatted function recreation.
+ * @format: receiving string
+ * Return: count, wich is a counter of all the values of the string.
  */
 int _printf(const char *format, ...)
 {
@@ -31,9 +31,9 @@ int _printf(const char *format, ...)
 	return (count);
 }
 /**
- * code_block - block of code from printf
- * @format: format
- * @list: list
+ * code_block - Printf function working code block
+ * @format: receiving string
+ * @list: va_list list, taking arguments
  * @type: type
  *
  * Return: numchar.
