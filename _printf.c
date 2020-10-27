@@ -39,11 +39,11 @@ int _printf(const char *format, ...)
  */
 int code_block(const char *format, va_list list, pa *type)
 {
-	int i = 0, j, c = 0, f, numchar = 0;
+	int i = 0, j, c = 0, numchar = 0, found = 0;
 
 	while (format[i] != '\0')
 	{
-		f = 0;
+		
 		if (format[i] == '%')
 		{
 			if  (format[i + 1] == '\0')
@@ -55,19 +55,20 @@ int code_block(const char *format, va_list list, pa *type)
 				if (type[j].c[0] == format[i + 1])
 				{
 					numchar += type[j].f(list);
-					f = 1;
+					found = 1;
 					break;
 				}
 			}
 		}
-		if (f == 1)
+		if (found == 1)
 		{
 			if (format[i + 1] == '\0' || format[i + 2] == '\0')
-			{
-				break;
-			}
-			i += 2;
-		}
+                        {
+                                break;
+                        }
+                        else
+                                i += 2;
+		} 
 		else
 		{
 			c = format[i];
@@ -75,6 +76,7 @@ int code_block(const char *format, va_list list, pa *type)
 			i++;
 			numchar++;
 		}
+		found = 0;
 	}
 	return (numchar);
 }
