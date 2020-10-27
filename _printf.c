@@ -34,7 +34,7 @@ int _printf(const char *format, ...)
  * code_block - Printf function working code block
  * @format: receiving string
  * @list: va_list list, taking arguments
- * @type: calling
+ * @type: calling the struct type
  *
  * Return: numchar, wich is a counter of the inputted string arguments.
  */
