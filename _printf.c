@@ -34,9 +34,9 @@ int _printf(const char *format, ...)
  * code_block - Printf function working code block
  * @format: receiving string
  * @list: va_list list, taking arguments
- * @type: type
+ * @type: calling
  *
- * Return: numchar.
+ * Return: numchar, wich is a counter of the inputted string arguments.
  */
 int code_block(const char *format, va_list list, pa *type)
 {
