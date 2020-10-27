@@ -43,7 +43,6 @@ int code_block(const char *format, va_list list, pa *type)
 
 	while (format[i] != '\0')
 	{
-		
 		if (format[i] == '%')
 		{
 			if  (format[i + 1] == '\0')
@@ -63,12 +62,12 @@ int code_block(const char *format, va_list list, pa *type)
 		if (found == 1)
 		{
 			if (format[i + 1] == '\0' || format[i + 2] == '\0')
-                        {
-                                break;
-                        }
-                        else
-                                i += 2;
-		} 
+			{
+				break;
+			}
+			else
+				i += 2;
+		}
 		else
 		{
 			c = format[i];
