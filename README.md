@@ -13,10 +13,10 @@
 
 ## Description 
 
-The custom printf function is called using \_printf() and will take in a format string.
+The custom printf function is called using _ printf() and will take in a format string. Printf recreation for Holberton School.
 
 ```
-int \_printf(const char \*format, ...);
+int _printf(const char \*format, ...);
 ```
 
 ## Features    
