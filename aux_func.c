@@ -3,9 +3,9 @@
 #include <stdarg.h>
 
 /**
- * _strlen - Entry point
- * @s: int
- * Return: void (Success)
+ * _strlen - calculates the lenght of a string
+ * @s: pointer to string
+ * Return: len (lenght)
  */
 int _strlen(char *s)
 {
@@ -22,7 +22,7 @@ int _strlen(char *s)
 
 /**
  * print_char - prints a char
- * @list: list
+ * @list: list of arguments
  *
  * Return: Nothing
  */
