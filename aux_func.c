@@ -3,9 +3,9 @@
 #include <stdarg.h>
 
 /**
- * _strlen - Entry point
- * @s: int
- * Return: void (Success)
+ * _strlen - calculates the lenght of a string
+ * @s: pointer to string
+ * Return: len (lenght)
  */
 int _strlen(char *s)
 {
@@ -22,7 +22,7 @@ int _strlen(char *s)
 
 /**
  * print_char - prints a char
- * @list: list
+ * @list: list of arguments
  *
  * Return: Nothing
  */
@@ -38,7 +38,7 @@ int print_char(va_list list)
 }
 
 /**
- * print_string - prints a string
+ * print_string - prints a string, and writes the value of a tmp variable and the quantity of bytes stored in n
  * @list: list
  *
  * Return: Nothing
@@ -58,7 +58,7 @@ int print_string(va_list list)
 	return (n);
 }
 /**
- * print_int - Print integers when invoked
+ * print_int - Print integers, with putchar function
  * @list: argument entered to print
  *
  * Return: Nothing

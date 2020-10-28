@@ -3,9 +3,9 @@
 #include <stdlib.h>
 #include <stdarg.h>
 /**
- * _printf - print
- * @format: string
- * Return: count.
+ * _printf - print formatted function recreation.
+ * @format: receiving string.
+ * Return: count, wich is a counter of all the values of the string.
  */
 int _printf(const char *format, ...)
 {
@@ -31,12 +31,12 @@ int _printf(const char *format, ...)
 	return (count);
 }
 /**
- * code_block - block of code from printf
- * @format: format
- * @list: list
- * @type: type
+ * code_block - Printf function working code block
+ * @format: receiving string
+ * @list: va_list list, taking arguments
+ * @type: calling the struct type
  *
- * Return: numchar.
+ * Return: numchar, wich is a counter of the inputted string arguments.
  */
 int code_block(const char *format, va_list list, pa *type)
 {

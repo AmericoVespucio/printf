@@ -1,12 +1,12 @@
 #include "holberton.h"
 
 /**
- * print_uint - main function
+ * print_uint - print unsigned int, wich is gonna be called in _printf function
  * @list: The argument pointer.
  *
  * Description: This function prints a unsigned int.
  *
- * Return: 0.
+ * Return: i.
  */
 int print_uint(va_list list)
 {
