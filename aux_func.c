@@ -38,7 +38,7 @@ int print_char(va_list list)
 }
 
 /**
- * print_string - prints a string, and writes the value of a tmp variable and the quantity of bytes stored in n
+ * print_string - prints a string.
  * @list: list
  *
  * Return: Nothing
